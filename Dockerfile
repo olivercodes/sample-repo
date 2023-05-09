@@ -1,4 +1,4 @@
-FROM docker.io/rust:1.58.1-buster AS production-build
+FROM docker.io/rust:1.69.9-buster AS production-build
 WORKDIR /usr/src
 
 RUN apt-get update
