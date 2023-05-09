@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chalupa-bot
+  labels:
+    app: chalupa
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: chalupa
+  template:
+    metadata:
+      labels:
+        app: chalupa
+    spec:
+      containers:
+      - name: chalupa-bot
+        image: ghcr.io/olivercodes/chalupa-bot:TO_BE_REPLACED
+        env:
+        - name: DISCORD_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: discord-token
+              key: DISCORD_TOKEN
